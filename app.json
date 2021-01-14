@@ -1,0 +1,7 @@
+{
+  "name": "To do list von Diagnosa",
+  "description": "Simple to do list to get things done. E.g. to track assignment in German language course.",
+  "repository": "https://github.com/diagnosa/To-do-list-von-Diagnosa",
+  "logo": "https://img.icons8.com/clouds/100/000000/todo-list.png",
+  "keywords": ["python", "flask"]
+}
