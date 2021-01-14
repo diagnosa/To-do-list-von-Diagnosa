@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My Hackathon Project</title>
+    <title>To Do List von Diagnosa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
@@ -24,5 +24,31 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+      function bindListEvent(){
+        $(".close-btn").click(function(e){
+          e.stopPropagation();
+          $(this).parent().remove();
+        });   
+        $(".list-item").click(function(){
+          if($(this).hasClass('checked')) return;
+          $(this).addClass('checked');
+        });
+      }
+      $("#item-submit").click(function(){
+        const value=$("#item-input").val();
+        if(value && value !== ''){
+          $("#list").append(`
+          <li class="list-item list-group-item" >
+            ${value}
+            <button class="btn close-btn h-100">×</button>
+          </li>
+          `);
+          bindListEvent();
+        }
+      })
+      bindListEvent();
+    </script>
   </body>
 </html>
